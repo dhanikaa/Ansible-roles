@@ -9,7 +9,7 @@
 
 - name: Copy file with owner and permissions  # A descriptive name for the task to copy an HTML file to the web server.
   ansible.builtin.copy:                      # Uses the "copy" module to transfer files from the Ansible control node to the managed nodes.
-    src: index.html       # The source file (index.html) located on the Ansible control node.
+    src: files/index.html       # The source file (index.html) located on the Ansible control node.
     dest: /var/www/html   # The destination path on the managed nodes where the file will be copied.
     owner: root           # Sets the file's owner to "root" (superuser).
     group: root           # Sets the file's group to "root".
