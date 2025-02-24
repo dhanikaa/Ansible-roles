@@ -1,3 +1,16 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for test
+- name: Install apache httpd   # A descriptive name for the task to install the Apache HTTP server.
+  ansible.builtin.apt:         # Specifies that we are using the "apt" module, which is used for package management in Debian-based systems.
+    name: apache2              # Defines the package to install. "apache2" is the Apache HTTP server package for Ubuntu/Debian.
+    state: present             # Ensures that the package is installed. If it's not installed, Ansible will install it.
+    update_cache: yes          # Updates the package cache before installing the package (equivalent to `apt update` before `apt install`).
+
+- name: Copy file with owner and permissions  # A descriptive name for the task to copy an HTML file to the web server.
+  ansible.builtin.copy:                      # Uses the "copy" module to transfer files from the Ansible control node to the managed nodes.
+    src: index.html       # The source file (index.html) located on the Ansible control node.
+    dest: /var/www/html   # The destination path on the managed nodes where the file will be copied.
+    owner: root           # Sets the file's owner to "root" (superuser).
+    group: root           # Sets the file's group to "root".
+    mode: '0644'          # Sets file permissions to "0644" (read/write for the owner, read-only for others).
