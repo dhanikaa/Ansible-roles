@@ -1,3 +1,8 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # handlers file for test
+---
+- name: Restart Apache Service
+  ansible.builtin.service:
+    name: apache2
+    state: restarted
